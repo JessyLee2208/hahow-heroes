@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Card = styled.div`
   width: 200px;
@@ -33,21 +34,16 @@ const Name = styled.div`
   margin: 18px 0;
 `;
 
-const Link = styled.a`
-  text-decoration: none;
-`;
-
-function HeroeCards({ data }) {
-  console.log(data);
+function HeroeCards({ data, fouce }) {
   return (
-    <Card>
-      <Link href="/">
-        <Photo>
-          <img src={data.image} alt=""></img>
+    <Link to={`/heroes/${data.id}`} style={{ textDecoration: 'none' }}>
+      <Card id={data.id} style={{ border: fouce === data.id ? '1px solid #2d2d2d' : '1px solid #e4e4e4' }}>
+        <Photo id={data.id}>
+          <img src={data.image} alt="" id={data.id}></img>
         </Photo>
-        <Name>{data.name}</Name>
-      </Link>
-    </Card>
+        <Name id={data.id}>{data.name}</Name>
+      </Card>
+    </Link>
   );
 }
 
