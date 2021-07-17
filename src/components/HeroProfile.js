@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
+
 import AbilityController from './AbilityController';
+import useHeroDataCheck from '../hook/useHeroDataCheck';
 
 const Name = styled.div`
   color: #1a1a1a;
@@ -66,28 +68,15 @@ function HeroProfile() {
 
   const host_name = `https://hahow-recruit.herokuapp.com/heroes/${id}/profile`;
 
-  useEffect(() => {
-    if (id) {
-      fetch(`${host_name}`).then(async (res) => {
-        const abilitys = await res.json();
-        setAbility(abilitys);
-        let a = Object.values(abilitys);
-        let b = a.reduce((pre, cur) => pre + cur);
-        const c = {
-          obj: abilitys,
-          last: 0
-        };
-        setAbilityTotal(c);
-      });
-    }
-  }, [id]);
-
-  useEffect(() => {
-    setAbility(abilityTotal.obj);
-  }, [abilityTotal]);
+  function setAbilityTotalData(abilitys) {
+    const data = {
+      obj: abilitys,
+      last: 0
+    };
+    setAbilityTotal(data);
+  }
 
   function upLoadData() {
-    console.log(abilityTotal.obj);
     fetch(`${host_name}`, {
       method: 'PATCH',
       headers: {
@@ -95,17 +84,26 @@ function HeroProfile() {
       },
       body: JSON.stringify(abilityTotal.obj)
     }).then(async (res) => {
-      console.log(res);
+      // console.log(res);
+      // if()
     });
   }
 
+  function renderController() {
+    return Object.entries(ability).map((data, index) => (
+      <AbilityController abilityData={data} total={abilityTotal} set={setAbilityTotal} key={index}></AbilityController>
+    ));
+  }
+
+  useHeroDataCheck(host_name, setAbilityTotalData);
+
+  useEffect(() => {
+    setAbility(abilityTotal.obj);
+  }, [abilityTotal]);
+
   return ability ? (
     <Box>
-      <div>
-        {Object.entries(ability).map((data) => (
-          <AbilityController data={data} total={abilityTotal} set={setAbilityTotal}></AbilityController>
-        ))}
-      </div>
+      <div>{renderController()}</div>
       <CheckBox>
         <Name>剩餘點數：{abilityTotal.last}</Name>
         {abilityTotal.last !== 0 ? (

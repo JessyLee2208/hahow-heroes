@@ -34,10 +34,10 @@ const Name = styled.div`
   margin: 18px 0;
 `;
 
-function HeroeCards({ data, fouce }) {
+function HeroeCards({ data, focus }) {
   return (
     <Link to={`/heroes/${data.id}`} style={{ textDecoration: 'none' }}>
-      <Card id={data.id} style={{ border: fouce === data.id ? '1px solid #2d2d2d' : '1px solid #e4e4e4' }}>
+      <Card id={data.id} style={{ border: focus === data.id ? '1px solid #2d2d2d' : '1px solid #e4e4e4' }}>
         <Photo id={data.id}>
           <img src={data.image} alt="" id={data.id}></img>
         </Photo>
