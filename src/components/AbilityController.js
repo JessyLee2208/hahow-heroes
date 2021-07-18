@@ -6,7 +6,7 @@ const Text = styled.div`
   color: #1a1a1a;
   text-align: center;
   font-size: 20px;
-  margin: 6px 0;
+  margin: 6px 14px;
 `;
 
 const QuantityBox = styled.div`
@@ -40,26 +40,22 @@ const QuantityDisableButton = styled(QuantityButton)`
 `;
 
 function AbilityController({ abilityData, set, total }) {
-  const fouceAbility = abilityData[0];
-  const heroabilityDataState = abilityData[1];
+  const currentAbility = abilityData[0];
+  const currentAbilityQuantity = abilityData[1];
   const obj = total.obj;
 
-  const [abilityDataState, setabilityDataStateState] = useState(heroabilityDataState);
+  const [abilityQuantityCount, setAbilityQuantityCount] = useState(currentAbilityQuantity);
   const [incrementState, setIncrementState] = useState(false);
 
-  useEffect(() => {
-    setabilityDataStateState(heroabilityDataState);
-  }, [heroabilityDataState]);
-
   function HandleAbiltyData(abilityCount, lastAbilityCount) {
-    setabilityDataStateState(abilityCount);
-    const data = { obj: { ...obj, [fouceAbility]: abilityCount }, last: lastAbilityCount };
+    setAbilityQuantityCount(abilityCount);
+    const data = { obj: { ...obj, [currentAbility]: abilityCount }, last: lastAbilityCount };
     set(data);
   }
 
   function decrementHandler() {
-    if (abilityDataState !== 0) {
-      HandleAbiltyData(abilityDataState - 1, total.last + 1);
+    if (abilityQuantityCount !== 0) {
+      HandleAbiltyData(abilityQuantityCount - 1, total.last + 1);
     }
   }
 
@@ -67,10 +63,14 @@ function AbilityController({ abilityData, set, total }) {
     if (total.last === 0) {
       setIncrementState(true);
     } else {
-      HandleAbiltyData(abilityDataState + 1, total.last - 1);
+      HandleAbiltyData(abilityQuantityCount + 1, total.last - 1);
       setIncrementState(false);
     }
   }
+
+  useEffect(() => {
+    setAbilityQuantityCount(currentAbilityQuantity);
+  }, [currentAbilityQuantity]);
 
   useEffect(() => {
     if (total && total.last === 0) {
@@ -78,25 +78,25 @@ function AbilityController({ abilityData, set, total }) {
     } else {
       setIncrementState(false);
     }
-  }, [abilityDataState, total]);
+  }, [abilityQuantityCount, total]);
 
   return (
     <QuantityBox>
-      <Text>{fouceAbility}</Text>
-      {abilityDataState !== 0 ? (
-        <QuantityButton onClick={decrementHandler} id="decrement">
-          -
-        </QuantityButton>
-      ) : (
-        <QuantityDisableButton>-</QuantityDisableButton>
-      )}
-      <Text>{abilityDataState}</Text>
+      <Text>{currentAbility.toUpperCase()}</Text>
       {!incrementState ? (
         <QuantityButton onClick={incrementHandler} id="increment">
           +
         </QuantityButton>
       ) : (
         <QuantityDisableButton>+</QuantityDisableButton>
+      )}
+      <Text>{abilityQuantityCount}</Text>
+      {abilityQuantityCount !== 0 ? (
+        <QuantityButton onClick={decrementHandler} id="decrement">
+          -
+        </QuantityButton>
+      ) : (
+        <QuantityDisableButton>-</QuantityDisableButton>
       )}
     </QuantityBox>
   );

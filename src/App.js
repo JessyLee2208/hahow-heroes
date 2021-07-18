@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
-import HeroProfile from './components/HeroProfile';
-import HeroList from './components/HeroList';
+import HeroProfile from './view/HeroProfile';
+import HeroList from './view/HeroList';
+import { Loading } from './components/LottieAnimat';
+import useTimer from './hook/useTimer';
 
 const AppBox = styled.div`
   display: flex;
@@ -16,14 +19,16 @@ const AppBox = styled.div`
 `;
 
 function App() {
+  const timer = useTimer();
+
   return (
     <AppBox>
+      <Toaster />
       <Router>
-        <HeroList />
+        {timer ? <Loading /> : <HeroList />}
+
         <Switch>
-          <Route path="/heroes/:id">
-            <HeroProfile />
-          </Route>
+          <Route path="/heroes/:id">{timer ? null : <HeroProfile />}</Route>
           <Redirect to="/heroes" />
         </Switch>
       </Router>

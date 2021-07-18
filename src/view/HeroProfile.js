@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
-import AbilityController from './AbilityController';
+import AbilityController from '../components/AbilityController';
 import useHeroDataCheck from '../hook/useHeroDataCheck';
 
+import { upLoadSuccessnNotify } from '../utils/toasts';
+
 const Name = styled.div`
+  width: 130px;
   color: #1a1a1a;
   text-align: center;
   font-size: 20px;
@@ -55,7 +58,13 @@ const CheckButton = styled.button`
 const ButtonDisable = styled(CheckButton)`
   background: #d6d6d6;
   color: #a5a5a5;
+  cursor: not-allowed;
+
   &:focus {
+    background: #d6d6d6;
+    color: #a5a5a5;
+  }
+  &:hover {
     background: #d6d6d6;
     color: #a5a5a5;
   }
@@ -68,14 +77,6 @@ function HeroProfile() {
 
   const host_name = `https://hahow-recruit.herokuapp.com/heroes/${id}/profile`;
 
-  function setAbilityTotalData(abilitys) {
-    const data = {
-      obj: abilitys,
-      last: 0
-    };
-    setAbilityTotal(data);
-  }
-
   function upLoadData() {
     fetch(`${host_name}`, {
       method: 'PATCH',
@@ -84,9 +85,20 @@ function HeroProfile() {
       },
       body: JSON.stringify(abilityTotal.obj)
     }).then(async (res) => {
-      // console.log(res);
-      // if()
+      if (res.ok) {
+        upLoadSuccessnNotify();
+      } else {
+        throw new Error('Network response was not ok.');
+      }
     });
+  }
+
+  function setAbilityTotalData(abilitys) {
+    const data = {
+      obj: abilitys,
+      last: 0
+    };
+    setAbilityTotal(data);
   }
 
   function renderController() {

@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Hero!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Look Hero Page ](https://github.com/facebook/create-react-app)
 
-## Available Scripts
+</br>
 
-In the project directory, you can run:
+## Requirements
 
-### `npm start`
+- node.js v14.16.1
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+</br>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Quick Start
 
-### `npm test`
+1. clone this repository first.
+2. Under project root, run `npm install && npm run dev`.
+3. Run `npm start`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+</br>
 
-### `npm run build`
+## Architecture
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+├── components        # 重複使用的UI元件
+├── hook              # 自定義hook，取代重複撰寫的hook
+├── view              # layout
+├── utils             # 一些共用的function
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
 
-### `npm run eject`
+</br>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Front-End Frameworks & Library
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### React
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    React 是可以輕鬆打造「重複利用的元件」的函式庫。其優點除了可以寫出模組化、高維護性的的 UI 組件外，也因著 Virtual DOM 得特性幫助最佳化複雜的 UI 效能
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### styled-components
 
-## Learn More
+    styled-components 是基於優化 react component裡的 css的寫法。其優點是它會紀錄有哪些元件被渲染到頁面上，並自動的載入所需的樣式。也由於是CSS-in-JS所以在管理檔案上更方便。
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### react-router-dom
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    React Router 是一套React的導航組件，用來處理路由轉跳。
 
-### Code Splitting
+### react-hot-toast
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    是一套以React為基礎的toast套件。可讓使用者自行設定樣式。
 
-### Analyzing the Bundle Size
+### lottie-web
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    Lottie 是 Airbnb 開源的跨平台動畫函式庫，透過讀取JSON資料來呈現動畫。
 
-### Making a Progressive Web App
+</br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## How to comment code?
 
-### Advanced Configuration
+- 邏輯較複雜時
+- 非不得已情況需要寫某些 code 時
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+</br>
 
-### Deployment
+## Encounter problems or difficulties?
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+一開始在寫的時候，發現 hero 的能力是用 obj 去包。不確定是否把 obj 變成 array 來處理是否恰當。但是因為我想將 hero 的能力寫成獨立的 component 來使用。後來決定將資料轉成 array 來使用。
