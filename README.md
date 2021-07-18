@@ -1,6 +1,6 @@
 # Hero!
 
-[Look Hero Page ](https://github.com/facebook/create-react-app)
+[Look Hero Page ](https://jessylee2208.github.io/hahow-heroes/)
 
 </br>
 
