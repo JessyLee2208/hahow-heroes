@@ -29,7 +29,7 @@ function App() {
 
         <Switch>
           <Route path="/heroes/:id">{timer ? null : <HeroProfile />}</Route>
-          <Redirect to="/heroes" />
+          <Redirect to="/hahow-heroes/heroes" />
         </Switch>
       </Router>
     </AppBox>
