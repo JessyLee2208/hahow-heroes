@@ -8,15 +8,11 @@
 
 - node.js v14.16.1
 
-</br>
-
 ## Quick Start
 
 1. clone this repository first.
 2. Under project root, run `npm install && npm run dev`.
 3. Run `npm start`
-
-</br>
 
 ## Architecture
 
@@ -29,38 +25,32 @@
 
 ```
 
-</br>
-
 ## Front-End Frameworks & Library
 
 ### React
 
-    React 是可以輕鬆打造「重複利用的元件」的函式庫。其優點除了可以寫出模組化、高維護性的的 UI 組件外，也因著 Virtual DOM 得特性幫助最佳化複雜的 UI 效能
+React 是可以輕鬆打造「重複利用的元件」的函式庫。其優點除了可以寫出模組化、高維護性的的 UI 組件外，也因著 Virtual DOM 得特性幫助最佳化複雜的 UI 效能
 
 ### styled-components
 
-    styled-components 是基於優化 react component裡的 css的寫法。其優點是它會紀錄有哪些元件被渲染到頁面上，並自動的載入所需的樣式。也由於是CSS-in-JS所以在管理檔案上更方便。
+styled-components 是基於優化 react component 裡的 css 的寫法。其優點是它會紀錄有哪些元件被渲染到頁面上，並自動的載入所需的樣式。也由於是 CSS-in-JS 所以在管理檔案上更方便。
 
 ### react-router-dom
 
-    React Router 是一套React的導航組件，用來處理路由轉跳。
+React Router 是一套 React 的導航組件，用來處理路由轉跳。
 
 ### react-hot-toast
 
-    是一套以React為基礎的toast套件。可讓使用者自行設定樣式。
+是一套以 React 為基礎的 toast 套件。可讓使用者自行設定樣式。
 
 ### lottie-web
 
-    Lottie 是 Airbnb 開源的跨平台動畫函式庫，透過讀取JSON資料來呈現動畫。
-
-</br>
+Lottie 是 Airbnb 開源的跨平台動畫函式庫，透過讀取 JSON 資料來呈現動畫。
 
 ## How to comment code?
 
 - 邏輯較複雜時
 - 非不得已情況需要寫某些 code 時
-
-</br>
 
 ## Encounter problems or difficulties?
 
