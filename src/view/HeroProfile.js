@@ -75,6 +75,8 @@ function HeroProfile() {
   const [ability, setAbility] = useState([]);
   const [abilityTotal, setAbilityTotal] = useState({});
 
+  console.log(ability);
+
   const host_name = `https://hahow-recruit.herokuapp.com/heroes/${id}/profile`;
 
   function upLoadData() {
@@ -107,7 +109,8 @@ function HeroProfile() {
     ));
   }
 
-  useHeroDataCheck(host_name, setAbilityTotalData);
+  const a = useHeroDataCheck(host_name, setAbilityTotalData);
+  console.log(a);
 
   useEffect(() => {
     setAbility(abilityTotal.obj);

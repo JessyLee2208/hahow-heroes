@@ -20,6 +20,7 @@ const AppBox = styled.div`
 
 function App() {
   const timer = useTimer();
+  console.log(timer);
 
   return (
     <AppBox>
@@ -28,7 +29,7 @@ function App() {
         {timer ? <Loading /> : <HeroList />}
 
         <Switch>
-          <Route path="./heroes/:id">{timer ? null : <HeroProfile />}</Route>
+          <Route path="/heroes/:id">{timer ? null : <HeroProfile />}</Route>
           <Redirect to="./heroes" />
         </Switch>
       </Router>
