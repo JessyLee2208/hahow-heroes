@@ -57,3 +57,5 @@ Lottie 是 Airbnb 開源的跨平台動畫函式庫，透過讀取 JSON 資料�
 1. 一開始在寫的時候，發現 hero 的能力是用 obj 去包。不確定是否把 obj 變成 array 來處理合不合適。但是因為我想將 hero 的能力寫成獨立的 component 來使用。後來決定將資料轉成 array 來處理，會比較方便。
 
 2. 在處理一開始的 Loading 動畫時，因為想讓動畫完整呈現所以使用 setTimeout 來執行，可是發現因為 component 切分的關係，導致在 Hero Profile page 刷新頁面時，能力控制器會跟 loading 動畫一起出現。後來把 setTimeout 拉出來，做成一個獨立的 hook，讓兩個頁面可以同時知道目前是否有動畫。
+
+3. 最後再上傳 GitHub page 的時候，重新整理頁面會出現 404 的問題。所以上網查了一下發現是跟路由有關係。所以使用 HashRouter 取代 BrowserRouter
