@@ -20,7 +20,6 @@ const AppBox = styled.div`
 
 function App() {
   const timer = useTimer();
-  console.log(timer);
 
   return (
     <AppBox>
