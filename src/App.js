@@ -28,8 +28,8 @@ function App() {
         {timer ? <Loading /> : <HeroList />}
 
         <Switch>
-          <Route path="/heroes/:id">{timer ? null : <HeroProfile />}</Route>
-          <Redirect to="/hahow-heroes/heroes" />
+          <Route path="./heroes/:id">{timer ? null : <HeroProfile />}</Route>
+          <Redirect to="./heroes" />
         </Switch>
       </Router>
     </AppBox>
