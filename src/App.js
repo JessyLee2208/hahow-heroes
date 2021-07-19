@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BrowserRouter as HashRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
 import HeroProfile from './view/HeroProfile';
@@ -26,14 +26,14 @@ function App() {
     <AppBox>
       <Toaster />
 
-      <HashRouter>
+      <Router>
         {timer ? <Loading /> : <HeroList />}
 
         <Switch>
           <Route path="/heroes/:id">{timer ? null : <HeroProfile />}</Route>
           <Redirect to="/heroes" />
         </Switch>
-      </HashRouter>
+      </Router>
     </AppBox>
   );
 }
