@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/hahow-heroes/static/js/main.fe9ef9b5.chunk.js",
-    "main.js.map": "/hahow-heroes/static/js/main.fe9ef9b5.chunk.js.map",
+    "main.js": "/hahow-heroes/static/js/main.ec12577e.chunk.js",
+    "main.js.map": "/hahow-heroes/static/js/main.ec12577e.chunk.js.map",
     "runtime-main.js": "/hahow-heroes/static/js/runtime-main.fedddaef.js",
     "runtime-main.js.map": "/hahow-heroes/static/js/runtime-main.fedddaef.js.map",
-    "static/js/2.69b7e7f8.chunk.js": "/hahow-heroes/static/js/2.69b7e7f8.chunk.js",
-    "static/js/2.69b7e7f8.chunk.js.map": "/hahow-heroes/static/js/2.69b7e7f8.chunk.js.map",
+    "static/js/2.653ff858.chunk.js": "/hahow-heroes/static/js/2.653ff858.chunk.js",
+    "static/js/2.653ff858.chunk.js.map": "/hahow-heroes/static/js/2.653ff858.chunk.js.map",
     "index.html": "/hahow-heroes/index.html",
-    "static/js/2.69b7e7f8.chunk.js.LICENSE.txt": "/hahow-heroes/static/js/2.69b7e7f8.chunk.js.LICENSE.txt"
+    "static/js/2.653ff858.chunk.js.LICENSE.txt": "/hahow-heroes/static/js/2.653ff858.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.fedddaef.js",
-    "static/js/2.69b7e7f8.chunk.js",
-    "static/js/main.fe9ef9b5.chunk.js"
+    "static/js/2.653ff858.chunk.js",
+    "static/js/main.ec12577e.chunk.js"
   ]
 }
