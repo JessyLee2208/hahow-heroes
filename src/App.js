@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import styled from 'styled-components';
+import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+
+import HeroProfile from './view/HeroProfile';
+import HeroList from './view/HeroList';
+import { Loading } from './components/LottieAnimat';
+import useTimer from './hook/useTimer';
+
+const AppBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  max-width: 920px;
+  width: auto;
+  margin: auto;
+`;
 
 function App() {
+  const timer = useTimer();
+  console.log(timer);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppBox>
+      <Toaster />
+
+      <Router>
+        {timer ? <Loading /> : <HeroList />}
+
+        <Switch>
+          <Route path="/heroes/:id">{timer ? null : <HeroProfile />}</Route>
+          <Redirect to="/heroes" />
+        </Switch>
+      </Router>
+    </AppBox>
   );
 }
 

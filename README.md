@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Hero!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Look Hero Page ](https://jessylee2208.github.io/hahow-heroes/)
 
-## Available Scripts
+</br>
 
-In the project directory, you can run:
+## Requirements
 
-### `npm start`
+- node.js v14.16.1
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Quick Start
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. clone this repository first.
+2. Under project root, run `npm install && npm run dev`.
+3. Run `npm start`
 
-### `npm test`
+## Architecture
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
 
-### `npm run build`
+├── components        # 重複使用的UI元件
+├── hook              # 自定義hook，取代重複撰寫的hook
+├── view              # layout
+├── utils             # 一些共用的function或檔案
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Front-End Frameworks & Library
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### React
 
-### `npm run eject`
+React 是可以輕鬆打造「重複利用的元件」的函式庫。其優點除了可以寫出模組化、高維護性的的 UI 組件外，也因著 Virtual DOM 得特性幫助最佳化複雜的 UI 效能
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### styled-components
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+styled-components 是基於優化 react component 裡的 css 的寫法。其優點是它會紀錄有哪些元件被渲染到頁面上，並自動的載入所需的樣式。也由於是 CSS-in-JS 所以在管理檔案上更方便。
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### react-router-dom
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+React Router 是一套 React 的導航組件，用來處理路由轉跳。
 
-## Learn More
+### react-hot-toast
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+是一套以 React 為基礎的 toast 套件。可讓使用者自行設定樣式。
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### lottie-web
 
-### Code Splitting
+Lottie 是 Airbnb 開源的跨平台動畫函式庫，透過讀取 JSON 資料來呈現動畫。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## How to comment code?
 
-### Analyzing the Bundle Size
+- 邏輯較複雜時
+- 非不得已情況需要寫某些 code 時
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Encounter problems or difficulties?
 
-### Making a Progressive Web App
+1. 一開始在寫的時候，發現 hero 的能力是用 obj 去包。不確定是否把 obj 變成 array 來處理合不合適。但是因為我想將 hero 的能力寫成獨立的 component 來使用。後來決定將資料轉成 array 來處理，會比較方便。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. 在處理一開始的 Loading 動畫時，因為想讓動畫完整呈現所以使用 setTimeout 來執行，可是發現因為 component 切分的關係，導致在 Hero Profile page 刷新頁面時，能力控制器會跟 loading 動畫一起出現。後來把 setTimeout 拉出來，做成一個獨立的 hook，讓兩個頁面可以同時知道目前是否有動畫。
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. 最後再上傳 GitHub page 的時候，重新整理頁面會出現 404 的問題。所以上網查了一下發現是跟路由有關係。所以使用 HashRouter 取代 BrowserRouter
